@@ -1,0 +1,45 @@
+language: python
+python:
+  - 2.7
+  - 3.4
+  - 3.5
+  - pypy
+
+cache:
+  apt: true
+  pip: true
+  directories:
+    - pip_download_cache
+
+before_install:
+  - mkdir -p $PIP_DOWNLOAD_CACHE
+
+install:
+  - pip install coveralls
+  - pip install tox
+  - pip install "Django${DJANGO_VERSION}"
+
+after_success:
+  coveralls
+
+script:
+  - python setup.py test
+
+env:
+  global:
+    - PIP_DOWNLOAD_CACHE="pip_download_cache"
+  matrix:
+    - DJANGO_VERSION=">=1.8,<1.9"
+    - DJANGO_VERSION=">=1.9,<1.10"
+    - DJANGO_VERSION="==1.10b1"
+
+matrix:
+  allow_failures:
+    - python: pypy
+    - env: DJANGO_VERSION="==1.10b1"
+
+services:
+  - neo4j
+
+notifications:
+  email: false

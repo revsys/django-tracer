@@ -1,0 +1,7 @@
+Django
+Sphinx
+coverage
+nose
+sphinx-rtd-theme
+tox
+unittest2
