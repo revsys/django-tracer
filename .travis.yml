@@ -46,8 +46,8 @@ matrix:
     - python: pypy
     - env: DJANGO_VERSION="==1.10b1"
 
-services:
-  - neo4j
+#services:
+#  - neo4j
 
 notifications:
   email: false
