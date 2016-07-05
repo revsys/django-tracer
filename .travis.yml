@@ -12,7 +12,7 @@ cache:
     - pip_download_cache
 
 jdk:
-  - oraclejdk7
+  - oraclejdk8
 
 before_install:
   - mkdir -p $PIP_DOWNLOAD_CACHE
