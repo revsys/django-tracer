@@ -19,7 +19,7 @@ def get_version(package):
     return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
 
 setup(
-    name="tracer",
+    name="django-tracer",
     version=get_version("tracer"),
     description="Integrating py2neo with Django",
     long_description="Connection manager and Neo4j backend for Django",
