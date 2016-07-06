@@ -27,9 +27,6 @@ install:
 after_success:
   coveralls
 
-before_script:
-  - sleep 10
-
 script:
   - python setup.py test
 
