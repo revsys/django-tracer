@@ -5,8 +5,8 @@ from __future__ import absolute_import, unicode_literals
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
+from tracer import loading
 from tracer.constants import DEFAULT_ALIAS
-from tracer.loading import ConnectionHandler
 
 __title__ = "tracer"
 __version__ = "0.0.1"
@@ -18,7 +18,7 @@ default_app_config = 'tracer.apps.TracerConfig'
 
 
 if not hasattr(settings, 'NEO4J_CONNECTIONS'):
-    raise ImproperlyConfigured('The NEO4J_CONNECTIONS setting is required')
+    raise ImproperlyConfigured('The NEO4J_CONNECTIONS setting is required.')
 
 if DEFAULT_ALIAS not in settings.NEO4J_CONNECTIONS:
     raise ImproperlyConfigured('The default alias "%s" must be included '

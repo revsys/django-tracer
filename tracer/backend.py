@@ -251,9 +251,6 @@ class Neo4jEngine(object):
         self.options = settings.NEO4J_CONNECTIONS.get(self.using, {})
         self._backend = None
 
-    # def __repr__(self):
-    #     return '<%s: %s>' % (self.__class__.__name__, self.using)
-
     def get_backend(self):
         if self._backend is None:
             self._backend = self.backend(self.using, **self.options)

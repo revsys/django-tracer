@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'tracer',
-    # 'tests.testapp'
+    'tests.testapp'
 
 ]
 
