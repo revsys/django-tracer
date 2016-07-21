@@ -4,5 +4,6 @@ coverage
 nose
 sphinx-rtd-theme
 tox
-py2neo==3.1.0
+py2neo==3.1.1
 unittest2
+vmprof==0.2.8

@@ -4,7 +4,7 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), "tests"))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'tests'))
 
 SECRET_KEY = 'Norwegian Blue'
 DEBUG = True

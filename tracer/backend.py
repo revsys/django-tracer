@@ -8,8 +8,7 @@ from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
 from py2neo.database import Graph
-
-from .constants import DEFAULT_ALIAS
+from tracer.constants import DEFAULT_ALIAS
 
 
 class Neo4jBackend(object):
