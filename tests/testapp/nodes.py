@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, unicode_literals
-
 from py2neo.ogm import GraphObject, Property, RelatedFrom, RelatedTo
 from tracer.nodes import GraphObjectMixin
 

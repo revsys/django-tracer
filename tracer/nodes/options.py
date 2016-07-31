@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, unicode_literals
-
 from django.apps import apps
+from django.db.models.options import make_immutable_fields_list
 from django.utils.functional import cached_property
 from django.utils.encoding import python_2_unicode_compatible, smart_text
 from django.utils.text import camel_case_to_spaces
@@ -36,6 +35,7 @@ class Options(object):
         self.ordering = []
         self.verbose_name = None
         self.verbose_name_plural = None
+        self._get_fields_cache = {}
 
         # Store the original user-defined values for each option,
         # for use when serializing the node definition.
@@ -68,6 +68,15 @@ class Options(object):
         pass
 
     @cached_property
+    def fields(self):
+        """
+        Returns a list of all forward fields on the node.
+        """
+        return make_immutable_fields_list(
+            'fields',
+            (f for f in self._get_fields(reverse=False)))
+
+    @cached_property
     def managers(self):
         # TODO: Implement
         return []
@@ -75,6 +84,16 @@ class Options(object):
     @cached_property
     def managers_map(self):
         return {manager.name: manager for manager in reversed(self.managers)}
+
+    def _get_fields(self, forward: bool = True, reverse=True, include_parents=True,
+                    include_hidden=False, seen_models=None):
+        """
+        Internal helper function to return fields of the node.
+        @:param forward: If True, return fields defined on this node.
+        @:param reverse: If True, return fields pointing to this node.
+        @:param include_parents {Boolean}:
+        """
+
 
     def _prepare(self, node):
         # TODO: Set up ordering
@@ -86,7 +105,6 @@ class Options(object):
         self._expire_cache()
 
     def contribute_to_class(self, cls, name):
-
         cls._meta = self
         self.node = cls
         self.object_name = cls.__name__

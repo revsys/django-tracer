@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, unicode_literals
-
 import inspect
 
 from django.utils import six
@@ -55,12 +53,6 @@ class Meta(GraphObjectType):
     def _default_manager(cls):
         return cls._meta.default_manager
 
-    def add_to_class(cls, name, value):
-        if not inspect.isclass(value) and hasattr(value, 'contribute_to_class'):
-            value.contribute_to_class(cls, name)
-        else:
-            setattr(cls, name, value)
-
     def _prepare(cls):
         """
         Prepares the the class
@@ -75,6 +67,12 @@ class Meta(GraphObjectType):
             manager = Manager()
             manager.auto_created = True
             cls.add_to_class('objects', manager)
+
+    def add_to_class(cls, name, value):
+        if not inspect.isclass(value) and hasattr(value, 'contribute_to_class'):
+            value.contribute_to_class(cls, name)
+        else:
+            setattr(cls, name, value)
 
 
 class GraphObjectMixin(six.with_metaclass(Meta)):
