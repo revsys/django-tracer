@@ -1,6 +1,4 @@
-include README.rst
+include README.md
 include LICENSE.txt
-include requirements.txt
 include tox.ini
-recursive-include docs Makefile *.rst *.py *.bat
-recursive-include tests *.py *.json *.txt
+recursive-include *.py

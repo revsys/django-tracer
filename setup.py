@@ -1,57 +1,29 @@
-# -*- coding: utf-8 -*-
-
-import re
 import os
-
-try:
-    from setuptools import setup
-except ImportError:
-    from ez_setup import use_setuptools
-    use_setuptools()
-    from setuptools import setup
+from setuptools import setup, find_packages
 
 
-def get_version(package):
-    """
-    Return package version as listed in `__version__` in `init.py`.
-    """
-    init_py = open(os.path.join(package, "__init__.py")).read()
-    return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
+f = open(os.path.join(os.path.dirname(__file__), 'README.md'))
+readme = f.read()
+f.close()
 
 setup(
-    name="django-tracer",
-    version=get_version("tracer"),
-    description="Integrating py2neo with Django",
-    long_description="Connection manager and Neo4j backend for Django",
-    author="Rolf Håvard Blindheim",
-    author_email="rhblind@gmail.com",
-    url="https://github.com/rhblind/django-tracer",
-    download_url="https://github.com/rhblind/django-tracer.git",
-    license="MIT License",
-    packages=[
-        "tracer",
-    ],
+    name='django-tracer',
+    version="0.0.2",
+    description='django-tracer gives you an easy way to generate and use a UUID per request',
+    long_description=readme,
+    author='Frank Wiles',
+    author_email='frank@revsys.com',
+    url='https://github.com/frankwiles/django-tracer/',
     include_package_data=True,
-    install_requires=[
-        "Django>=1.8.0",
-        "py2neo==3.1.0"
-    ],
-    tests_require=[
-        "nose",
-        "coverage",
-        "unittest2",
-    ],
+    packages=find_packages(),
     zip_safe=False,
-    test_suite="tests.runtests.start",
     classifiers=[
-        "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha",
-        "Environment :: Web Environment",
-        "Framework :: Django",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 3",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-    ]
+        'Development Status :: 4 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3',
+        'Framework :: Django',
+    ],
 )
