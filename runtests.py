@@ -10,11 +10,8 @@ if django.VERSION[0:2] < (2, 0):
 else:
     CURRENT_MIDDLEWARE = global_settings.MIDDLEWARE
 
-OUR_MIDDLEWARE = []
+OUR_MIDDLEWARE = ['tracer.middleware.RequestID']
 OUR_MIDDLEWARE.extend(CURRENT_MIDDLEWARE)
-OUR_MIDDLEWARE.extend([
-    'tracer.middleware.RequestID',
-])
 
 
 settings.configure(
