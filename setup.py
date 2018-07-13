@@ -17,6 +17,7 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
+    test_suite='runtests.runtests',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
