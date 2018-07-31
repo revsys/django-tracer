@@ -4,7 +4,8 @@
 
     - README updates
     - Added CHANGELOG.md
-    
+    - Renamed LICENSE.txt -> LICENSE
+     
 ## v0.9.2 - July 31st, 2018
 
     - Updated setup.py to denote README content is Markdown
