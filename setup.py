@@ -8,7 +8,7 @@ f.close()
 
 setup(
     name='django-tracer',
-    version="0.9.0",
+    version="0.9.1",
     description='django-tracer gives you an easy way to generate and use a UUID per request',
     long_description=readme,
     author='Frank Wiles',
