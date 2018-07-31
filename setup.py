@@ -11,6 +11,7 @@ setup(
     version="0.9.1",
     description='django-tracer gives you an easy way to generate and use a UUID per request',
     long_description=readme,
+    long_description_content_type='text/markdown',
     author='Frank Wiles',
     author_email='frank@revsys.com',
     url='https://github.com/revsys/django-tracer/',
