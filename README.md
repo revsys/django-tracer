@@ -20,7 +20,9 @@ Along with generating and attaching a UUID to each request, the middleware also 
 
 First you need to install it via pip: 
 
-    pip install django-tracer
+```shell
+pip install django-tracer
+```
 
 Then just add `tracer` to `INSTALLED_APPS` in your settings. 
 
@@ -28,7 +30,7 @@ Then add `tracer.middleware.RequestID` to the top of your `MIDDLEWARE` settings.
 
 # Usage with standard logging
 
-```
+```python
 import logging
 
 from django.http import HttpResponse
